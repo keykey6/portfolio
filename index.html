@@ -9,16 +9,16 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --bg: #ffffff;
-            --bg-secondary: #f8f8f8;
-            --bg-card: #f5f5f5;
-            --border: #e5e5e5;
+            --bg: #fafafa;
+            --bg-secondary: #f5f5f5;
+            --bg-card: #ffffff;
+            --border: #e8e8e8;
             --border-hover: #d0d0d0;
-            --text-primary: #000000;
-            --text-secondary: #666666;
-            --text-muted: #999999;
-            --accent: #1a1a2e;
-            --accent-light: #2d2d44;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --accent: #000000;
+            --accent-light: #333333;
         }
         
         html { scroll-behavior: smooth; }
@@ -31,30 +31,30 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
         
         /* Navigation */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            padding: 16px 0;
+            padding: 20px 0;
         }
         
         .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 40px;
         }
         
         .logo {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
@@ -71,9 +71,20 @@
             font-size: 14px;
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
         }
         
         .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
         
         /* Hero */
         .hero {
@@ -85,67 +96,75 @@
             text-align: center;
         }
         
-        .hero-content { max-width: 700px; }
+        .hero-content { max-width: 680px; }
         
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 100px;
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 12px;
-            color: var(--text-secondary);
-            font-weight: 500;
-            letter-spacing: 1px;
+            color: var(--text-muted);
             text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 32px;
         }
         
+        .hero-eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--text-muted);
+        }
+        
         .hero h1 {
-            font-size: clamp(36px, 6vw, 64px);
+            font-size: clamp(32px, 5vw, 56px);
             font-weight: 800;
-            letter-spacing: -3px;
+            letter-spacing: -2px;
             line-height: 1.1;
             margin-bottom: 24px;
         }
         
         .hero-subtitle {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 40px;
+            line-height: 1.8;
+            margin-bottom: 48px;
         }
         
-        .hero-info {
+        .hero-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--border-hover);
+            margin: 0 auto 48px;
+        }
+        
+        .hero-meta {
             display: flex;
             justify-content: center;
             gap: 48px;
-            margin-top: 48px;
-            padding-top: 48px;
-            border-top: 1px solid var(--border);
         }
         
-        .hero-info-item {
-            text-align: center;
+        .hero-meta-item {
+            text-align: left;
         }
         
-        .hero-info-label {
-            font-size: 12px;
+        .hero-meta-label {
+            font-size: 11px;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
-        .hero-info-value {
-            font-size: 15px;
+        .hero-meta-value {
+            font-size: 14px;
             font-weight: 600;
             color: var(--text-primary);
         }
         
         /* Section */
         .section {
-            padding: 100px 0;
+            padding: 120px 0;
             border-top: 1px solid var(--border);
         }
         
@@ -153,25 +172,26 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-            margin-bottom: 60px;
+            margin-bottom: 64px;
         }
         
         .section-header-left {
             display: flex;
             align-items: baseline;
-            gap: 16px;
+            gap: 20px;
         }
         
         .section-number {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-muted);
             font-weight: 500;
+            font-family: monospace;
         }
         
         .section-title {
-            font-size: clamp(24px, 3vw, 36px);
+            font-size: clamp(22px, 3vw, 32px);
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
         
         .section-role {
@@ -182,18 +202,17 @@
         
         /* Card */
         .card {
-            background: var(--bg-secondary);
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 40px;
-            margin-bottom: 24px;
-            transition: all 0.3s;
+            margin-bottom: 20px;
+            transition: all 0.4s;
         }
         
         .card:hover {
             border-color: var(--border-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
         
         .card-label {
@@ -217,20 +236,27 @@
         }
         
         /* Strategy */
+        .strategy-list {
+            display: flex;
+            flex-direction: column;
+        }
+        
         .strategy-item {
             display: flex;
             align-items: flex-start;
             gap: 20px;
-            padding: 20px 0;
+            padding: 24px 0;
             border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
         }
         
         .strategy-item:last-child { border-bottom: none; }
+        .strategy-item:hover { padding-left: 8px; }
         
         .strategy-num {
-            width: 32px;
-            height: 32px;
-            background: var(--bg);
+            width: 36px;
+            height: 36px;
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 8px;
             display: flex;
@@ -240,20 +266,27 @@
             font-weight: 700;
             color: var(--text-primary);
             flex-shrink: 0;
+            transition: all 0.3s;
+        }
+        
+        .strategy-item:hover .strategy-num {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
         }
         
         .strategy-text {
             font-size: 15px;
             color: var(--text-secondary);
             line-height: 1.7;
-            padding-top: 4px;
+            padding-top: 6px;
         }
         
         /* Image Gallery */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 16px;
             margin-top: 32px;
         }
         
@@ -261,18 +294,18 @@
         
         .image-item {
             position: relative;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border);
             cursor: pointer;
             transition: all 0.4s;
-            background: var(--bg-card);
+            background: var(--bg-secondary);
             aspect-ratio: 16/10;
         }
         
         .image-item:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
         
         .image-item img {
@@ -282,12 +315,12 @@
             transition: all 0.5s;
         }
         
-        .image-item:hover img { transform: scale(1.05); }
+        .image-item:hover img { transform: scale(1.03); }
         
         .image-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
             opacity: 0;
             transition: opacity 0.3s;
             display: flex;
@@ -299,7 +332,7 @@
         
         .image-caption {
             color: white;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
         }
         
@@ -307,14 +340,14 @@
         .results-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 16px;
             margin-top: 32px;
         }
         
         .result-card {
-            background: var(--bg);
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 32px;
             text-align: center;
             transition: all 0.3s;
@@ -322,22 +355,24 @@
         
         .result-card:hover {
             border-color: var(--border-hover);
-            transform: translateY(-4px);
+            transform: translateY(-2px);
         }
         
         .result-number {
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 800;
             color: var(--accent);
             line-height: 1;
             margin-bottom: 8px;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
         }
         
         .result-label {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         /* Lightbox */
@@ -361,13 +396,13 @@
         .lightbox img {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 8px;
+            border-radius: 4px;
         }
         
         .lightbox-close {
             position: absolute;
             top: 32px; right: 32px;
-            width: 48px; height: 48px;
+            width: 44px; height: 44px;
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 50%;
@@ -376,7 +411,7 @@
             justify-content: center;
             cursor: pointer;
             color: white;
-            font-size: 24px;
+            font-size: 20px;
             transition: all 0.3s;
         }
         
@@ -399,7 +434,7 @@
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             transition: color 0.3s;
         }
@@ -407,7 +442,7 @@
         .footer-links a:hover { color: var(--text-primary); }
         
         .footer-copy {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
         }
         
@@ -417,7 +452,8 @@
             .section-header { flex-direction: column; gap: 12px; }
             .image-gallery, .image-gallery.three { grid-template-columns: 1fr; }
             .results-grid { grid-template-columns: 1fr; }
-            .hero-info { flex-direction: column; gap: 24px; }
+            .hero-meta { flex-direction: column; gap: 24px; align-items: center; }
+            .hero-meta-item { text-align: center; }
         }
     </style>
 </head>
@@ -442,24 +478,25 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">产品运营作品集 · 2026</div>
+            <div class="hero-eyebrow">产品运营作品集</div>
             <h1>技术赋能运营<br>数据驱动增长</h1>
             <p class="hero-subtitle">
                 数学与应用数学专业，具备 Python 开发能力与数据分析基础。
                 独立负责两个项目从 0 到 1 的运营，擅长通过技术工具解决用户痛点。
             </p>
-            <div class="hero-info">
-                <div class="hero-info-item">
-                    <div class="hero-info-label">教育</div>
-                    <div class="hero-info-value">呼伦贝尔学院</div>
+            <div class="hero-divider"></div>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">教育</div>
+                    <div class="hero-meta-value">呼伦贝尔学院</div>
                 </div>
-                <div class="hero-info-item">
-                    <div class="hero-info-label">专业</div>
-                    <div class="hero-info-value">数学与应用数学</div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">专业</div>
+                    <div class="hero-meta-value">数学与应用数学</div>
                 </div>
-                <div class="hero-info-item">
-                    <div class="hero-info-label">技能</div>
-                    <div class="hero-info-value">Python / FastAPI / 数据分析</div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">技能</div>
+                    <div class="hero-meta-value">Python / FastAPI / 数据分析</div>
                 </div>
             </div>
         </div>
@@ -485,17 +522,19 @@
 
             <div class="card">
                 <div class="card-label">运营策略</div>
-                <div class="strategy-item">
-                    <span class="strategy-num">01</span>
-                    <div class="strategy-text">技术端：基于 FastAPI 搭建 45 个 RESTful 接口，整合 OpenCV/rembg 实现一键抠图、老照片修复等功能</div>
-                </div>
-                <div class="strategy-item">
-                    <span class="strategy-num">02</span>
-                    <div class="strategy-text">增长端：设计「邀请好友解锁高级功能」裂变机制，在垂直社区通过案例帖精准引流</div>
-                </div>
-                <div class="strategy-item">
-                    <span class="strategy-num">03</span>
-                    <div class="strategy-text">风控端：引入 AI 人脸识别机制自动拦截违规内容，保障平台合规运营</div>
+                <div class="strategy-list">
+                    <div class="strategy-item">
+                        <span class="strategy-num">01</span>
+                        <div class="strategy-text">技术端：基于 FastAPI 搭建 45 个 RESTful 接口，整合 OpenCV/rembg 实现一键抠图、老照片修复等功能</div>
+                    </div>
+                    <div class="strategy-item">
+                        <span class="strategy-num">02</span>
+                        <div class="strategy-text">增长端：设计「邀请好友解锁高级功能」裂变机制，在垂直社区通过案例帖精准引流</div>
+                    </div>
+                    <div class="strategy-item">
+                        <span class="strategy-num">03</span>
+                        <div class="strategy-text">风控端：引入 AI 人脸识别机制自动拦截违规内容，保障平台合规运营</div>
+                    </div>
                 </div>
             </div>
 
@@ -503,8 +542,8 @@
                 <div class="card-label">产品截图</div>
                 <div class="image-gallery">
                     <div class="image-item" onclick="openLightbox(this)">
-                        <img src="bcdf22da7fed86079d86579df3962d4b.png" alt="全部工具页面" loading="lazy">
-                        <div class="image-overlay"><span class="image-caption">全部工具页面 · 45+ 图像处理工具</span></div>
+                        <img src="bcdf22da7fed86079d86579df3962d4b.png" alt="全部工具" loading="lazy">
+                        <div class="image-overlay"><span class="image-caption">全部工具 · 45+ 图像处理</span></div>
                     </div>
                     <div class="image-item" onclick="openLightbox(this)">
                         <img src="5b5da1b8d66c9a89a6458a7786e55934.png" alt="网站推荐" loading="lazy">
@@ -513,10 +552,6 @@
                     <div class="image-item" onclick="openLightbox(this)">
                         <img src="9c2e154499741f2f15772f8773331eac.png" alt="首页" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">首页 · 常用工具与 AI 搜索</span></div>
-                    </div>
-                    <div class="image-item" onclick="openLightbox(this)">
-                        <img src="fb138fc89a9d8e4a011f08cc2f6e62cc.png" alt="功能页面" loading="lazy">
-                        <div class="image-overlay"><span class="image-caption">功能页面 · 素材切割与 Design.md</span></div>
                     </div>
                 </div>
             </div>
@@ -530,7 +565,7 @@
                     </div>
                     <div class="result-card">
                         <div class="result-number">2000+</div>
-                        <div class="result-label">日均处理请求</div>
+                        <div class="result-label">日均请求</div>
                     </div>
                     <div class="result-card">
                         <div class="result-number">85%</div>
@@ -559,17 +594,19 @@
 
             <div class="card">
                 <div class="card-label">运营策略</div>
-                <div class="strategy-item">
-                    <span class="strategy-num">01</span>
-                    <div class="strategy-text">数据诊断：通过分析用户行为日志，定位「环境配置复杂」与「报错无反馈」为流失核心原因</div>
-                </div>
-                <div class="strategy-item">
-                    <span class="strategy-num">02</span>
-                    <div class="strategy-text">技术优化：设计多模态评分策略，将代码评测准确率提升至 98%，解决反馈痛点</div>
-                </div>
-                <div class="strategy-item">
-                    <span class="strategy-num">03</span>
-                    <div class="strategy-text">用户运营：建立分层体系，沉默用户邮件召回，核心用户推送进阶内容</div>
+                <div class="strategy-list">
+                    <div class="strategy-item">
+                        <span class="strategy-num">01</span>
+                        <div class="strategy-text">数据诊断：通过分析用户行为日志，定位「环境配置复杂」与「报错无反馈」为流失核心原因</div>
+                    </div>
+                    <div class="strategy-item">
+                        <span class="strategy-num">02</span>
+                        <div class="strategy-text">技术优化：设计多模态评分策略，将代码评测准确率提升至 98%，解决反馈痛点</div>
+                    </div>
+                    <div class="strategy-item">
+                        <span class="strategy-num">03</span>
+                        <div class="strategy-text">用户运营：建立分层体系，沉默用户邮件召回，核心用户推送进阶内容</div>
+                    </div>
                 </div>
             </div>
 
@@ -581,7 +618,7 @@
                         <div class="image-overlay"><span class="image-caption">编程闯关 · 14 门语言学习路径</span></div>
                     </div>
                     <div class="image-item" onclick="openLightbox(this)">
-                        <img src="14ac885a6d027119f6d4fcf63d27311a.png" alt="Jupyter 环境" loading="lazy">
+                        <img src="14ac885a6d027119f6d4fcf63d27311a.png" alt="Jupyter" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">Jupyter 集成 · 在线编程环境</span></div>
                     </div>
                     <div class="image-item" onclick="openLightbox(this)">
@@ -591,6 +628,10 @@
                     <div class="image-item" onclick="openLightbox(this)">
                         <img src="bb298b9b3ec415bdbfea57637f02a3a9.png" alt="智能体工坊" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">智能体工坊 · AI/ML 学习模块</span></div>
+                    </div>
+                    <div class="image-item" onclick="openLightbox(this)">
+                        <img src="fb138fc89a9d8e4a011f08cc2f6e62cc.png" alt="编程之旅" loading="lazy">
+                        <div class="image-overlay"><span class="image-caption">开启编程之旅 · 学习路线选择</span></div>
                     </div>
                 </div>
             </div>
@@ -626,17 +667,19 @@
 
             <div class="card">
                 <div class="card-label">核心成果</div>
-                <div class="strategy-item">
-                    <span class="strategy-num">01</span>
-                    <div class="strategy-text">策划「代码实战训练营」，联合 3 个技术社团，累计覆盖 210 名在校生，满意度 92%</div>
-                </div>
-                <div class="strategy-item">
-                    <span class="strategy-num">02</span>
-                    <div class="strategy-text">组织 6 场编程分享会，单场最高 120 人，帮助 80+ 同学解决技术问题</div>
-                </div>
-                <div class="strategy-item">
-                    <span class="strategy-num">03</span>
-                    <div class="strategy-text">牵头首届「校园 AI 应用创意赛」，收到 67 份作品，带动 AI 学习热度提升 40%</div>
+                <div class="strategy-list">
+                    <div class="strategy-item">
+                        <span class="strategy-num">01</span>
+                        <div class="strategy-text">策划「代码实战训练营」，联合 3 个技术社团，累计覆盖 210 名在校生，满意度 92%</div>
+                    </div>
+                    <div class="strategy-item">
+                        <span class="strategy-num">02</span>
+                        <div class="strategy-text">组织 6 场编程分享会，单场最高 120 人，帮助 80+ 同学解决技术问题</div>
+                    </div>
+                    <div class="strategy-item">
+                        <span class="strategy-num">03</span>
+                        <div class="strategy-text">牵头首届「校园 AI 应用创意赛」，收到 67 份作品，带动 AI 学习热度提升 40%</div>
+                    </div>
                 </div>
             </div>
 
@@ -668,7 +711,6 @@
     </footer>
 
     <script>
-        // Lightbox
         function openLightbox(item) {
             const img = item.querySelector('img');
             const lightbox = document.getElementById('lightbox');
@@ -688,7 +730,6 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
