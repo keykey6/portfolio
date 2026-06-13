@@ -32,13 +32,11 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
         
-        /* Noise Texture Overlay */
         body::before {
             content: '';
             position: fixed;
@@ -49,7 +47,6 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
         }
         
-        /* Cursor Glow */
         .cursor-glow {
             position: fixed;
             width: 400px; height: 400px;
@@ -62,10 +59,8 @@
             opacity: 0;
         }
         
-        /* Container */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
         
-        /* Navigation */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -77,9 +72,7 @@
             transition: all 0.3s;
         }
         
-        nav.scrolled {
-            border-bottom-color: var(--border);
-        }
+        nav.scrolled { border-bottom-color: var(--border); }
         
         .nav-inner {
             display: flex;
@@ -120,15 +113,9 @@
             transition: width 0.3s;
         }
         
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
         
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -265,17 +252,10 @@
         }
         
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Section */
         .section {
             padding: 120px 0;
             position: relative;
@@ -319,7 +299,6 @@
             border: 1px solid var(--border);
         }
         
-        /* Cards */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -354,9 +333,7 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
         
-        .card:hover::before {
-            opacity: 1;
-        }
+        .card:hover::before { opacity: 1; }
         
         .card-label {
             font-size: 12px;
@@ -389,7 +366,6 @@
             font-weight: 600;
         }
         
-        /* Strategy */
         .strategy-item {
             display: flex;
             align-items: flex-start;
@@ -399,13 +375,8 @@
             transition: all 0.3s;
         }
         
-        .strategy-item:last-child {
-            border-bottom: none;
-        }
-        
-        .strategy-item:hover {
-            padding-left: 8px;
-        }
+        .strategy-item:last-child { border-bottom: none; }
+        .strategy-item:hover { padding-left: 8px; }
         
         .strategy-num {
             width: 36px;
@@ -429,7 +400,6 @@
             border-color: var(--accent);
         }
         
-        /* Image Grid */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -437,9 +407,7 @@
             margin-top: 32px;
         }
         
-        .image-grid.three {
-            grid-template-columns: repeat(3, 1fr);
-        }
+        .image-grid.three { grid-template-columns: repeat(3, 1fr); }
         
         .image-wrapper {
             position: relative;
@@ -464,9 +432,7 @@
             transition: all 0.5s;
         }
         
-        .image-wrapper:hover img {
-            transform: scale(1.05);
-        }
+        .image-wrapper:hover img { transform: scale(1.05); }
         
         .image-overlay {
             position: absolute;
@@ -479,9 +445,7 @@
             padding: 20px;
         }
         
-        .image-wrapper:hover .image-overlay {
-            opacity: 1;
-        }
+        .image-wrapper:hover .image-overlay { opacity: 1; }
         
         .image-caption {
             color: white;
@@ -489,7 +453,6 @@
             font-weight: 500;
         }
         
-        /* Results */
         .results-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -523,9 +486,7 @@
             border-color: var(--border-hover);
         }
         
-        .result-card:hover::before {
-            transform: scaleX(1);
-        }
+        .result-card:hover::before { transform: scaleX(1); }
         
         .result-number {
             font-size: 48px;
@@ -543,7 +504,6 @@
             font-weight: 500;
         }
         
-        /* Lightbox */
         .lightbox {
             position: fixed;
             inset: 0;
@@ -584,11 +544,8 @@
             transition: all 0.3s;
         }
         
-        .lightbox-close:hover {
-            background: var(--border);
-        }
+        .lightbox-close:hover { background: var(--border); }
         
-        /* Footer */
         footer {
             padding: 80px 0;
             border-top: 1px solid var(--border);
@@ -611,16 +568,13 @@
             position: relative;
         }
         
-        .footer-links a:hover {
-            color: var(--text-primary);
-        }
+        .footer-links a:hover { color: var(--text-primary); }
         
         .footer-copy {
             font-size: 14px;
             color: var(--text-muted);
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 42px; }
             .section-title { font-size: 28px; }
@@ -631,7 +585,6 @@
             .section-role { margin-left: 0; }
         }
         
-        /* Loading Animation */
         .loading {
             position: fixed;
             inset: 0;
@@ -656,28 +609,22 @@
             animation: spin 1s linear infinite;
         }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
-    <!-- Loading -->
     <div class="loading" id="loading">
         <div class="loading-spinner"></div>
     </div>
 
-    <!-- Cursor Glow -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <div class="lightbox-close">×</div>
         <img src="" alt="Full size" id="lightboxImg">
     </div>
 
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
             <div class="nav-inner">
@@ -692,7 +639,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
@@ -714,7 +660,6 @@
         </div>
     </section>
 
-    <!-- Project 1 -->
     <section class="section" id="project1">
         <div class="container">
             <div class="section-header">
@@ -750,19 +695,19 @@
                 <div class="card-label">执行过程</div>
                 <div class="image-grid">
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./5b5da1b8d66c9a89a6458a7786e55934.png" alt="用户增长数据看板" loading="lazy">
+                        <img src="/作品集/5b5da1b8d66c9a89a6458a7786e55934.png" alt="用户增长数据看板" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">用户增长数据看板</span></div>
                     </div>
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./9c2e154499741f2f15772f8773331eac.png" alt="留存分析报表" loading="lazy">
+                        <img src="/作品集/9c2e154499741f2f15772f8773331eac.png" alt="留存分析报表" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">留存分析报表</span></div>
                     </div>
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./bcdf22da7fed86079d86579df3962d4b.png" alt="A/B 测试结果" loading="lazy">
+                        <img src="/作品集/bcdf22da7fed86079d86579df3962d4b.png" alt="A/B 测试结果" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">A/B 测试结果</span></div>
                     </div>
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./fb138fc89a9d8e4a011f08cc2f6e62cc.png" alt="运营活动配置" loading="lazy">
+                        <img src="/作品集/fb138fc89a9d8e4a011f08cc2f6e62cc.png" alt="运营活动配置" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">运营活动配置</span></div>
                     </div>
                 </div>
@@ -788,7 +733,6 @@
         </div>
     </section>
 
-    <!-- Project 2 -->
     <section class="section" id="project2">
         <div class="container">
             <div class="section-header">
@@ -824,15 +768,15 @@
                 <div class="card-label">执行过程</div>
                 <div class="image-grid">
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./14ac885a6d027119f6d4fcf63d27311a.png" alt="医生IP展示页" loading="lazy">
+                        <img src="/作品集/14ac885a6d027119f6d4fcf63d27311a.png" alt="医生IP展示页" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">医生IP展示页</span></div>
                     </div>
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./81c3634425be8c47fe47f363f92942a0.png" alt="用户评价系统" loading="lazy">
+                        <img src="/作品集/81c3634425be8c47fe47f363f92942a0.png" alt="用户评价系统" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">用户评价系统</span></div>
                     </div>
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./bb298b9b3ec415bdbfea57637f02a3a9.png" alt="内容运营后台" loading="lazy">
+                        <img src="/作品集/bb298b9b3ec415bdbfea57637f02a3a9.png" alt="内容运营后台" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">内容运营后台</span></div>
                     </div>
                 </div>
@@ -858,7 +802,6 @@
         </div>
     </section>
 
-    <!-- Project 3 -->
     <section class="section" id="project3">
         <div class="container">
             <div class="section-header">
@@ -871,15 +814,15 @@
                 <div class="card-label">项目展示</div>
                 <div class="image-grid three">
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./f641d115a25fc30485c98cc5178947cc.png" alt="项目截图1" loading="lazy">
+                        <img src="/作品集/f641d115a25fc30485c98cc5178947cc.png" alt="项目截图1" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">点击查看大图</span></div>
                     </div>
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./92a576154a003b5f8bee55ad1d92aa09.png" alt="项目截图2" loading="lazy">
+                        <img src="/作品集/92a576154a003b5f8bee55ad1d92aa09.png" alt="项目截图2" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">点击查看大图</span></div>
                     </div>
                     <div class="image-wrapper" onclick="openLightbox(this)">
-                        <img src="./bea8198e4662dc9400ec94c9409157a1.png" alt="项目截图3" loading="lazy">
+                        <img src="/作品集/bea8198e4662dc9400ec94c9409157a1.png" alt="项目截图3" loading="lazy">
                         <div class="image-overlay"><span class="image-caption">点击查看大图</span></div>
                     </div>
                 </div>
@@ -887,7 +830,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-links">
@@ -900,14 +842,12 @@
     </footer>
 
     <script>
-        // Loading
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loading').classList.add('hidden');
             }, 500);
         });
 
-        // Cursor Glow
         const cursorGlow = document.getElementById('cursorGlow');
         document.addEventListener('mousemove', (e) => {
             cursorGlow.style.left = e.clientX + 'px';
@@ -918,7 +858,6 @@
             cursorGlow.style.opacity = '0';
         });
 
-        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -928,7 +867,6 @@
             }
         });
 
-        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -946,7 +884,6 @@
             observer.observe(el);
         });
 
-        // Lightbox
         function openLightbox(wrapper) {
             const img = wrapper.querySelector('img');
             const lightbox = document.getElementById('lightbox');
@@ -966,7 +903,6 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
